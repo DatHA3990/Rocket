@@ -1,6 +1,6 @@
 // Aileron control
 
-#include <Aileron.h>
+#include "Aileron.h"
 
 void Aileron::Adjust(int & a0, int & a1, int & a2, int & a3)
 {

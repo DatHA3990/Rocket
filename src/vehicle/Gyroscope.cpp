@@ -1,6 +1,6 @@
 // MPU-6050
 
-#include <Gyroscope.h>
+#include "Gyroscope.h"
 
 Gyroscope::Gyroscope() // gyroscope setup
 {
