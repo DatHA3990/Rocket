@@ -1,4 +1,6 @@
 // Altimeter
+// This is a simplified version of Sparkfun's MPL3115A2's library
+
 
 #include "Arduino.h"
 #include "SparkFunMPL3115A2.h"  // MPL3115A2
