@@ -50,6 +50,6 @@ class Gyroscope
   public:
 
     Gyroscope(); // gyroscope setup
-
+	~Gyroscope();
     void GetAngle(float *ypr); // get gyroscope's angle
 };

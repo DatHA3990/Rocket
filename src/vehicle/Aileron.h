@@ -37,6 +37,8 @@ class Aileron
 
   public:
     Aileron();
+	~Aileron();
+
     void Write(const float *ypr); // turn the ailerons so that they guide the rocket straight up
 };
 
