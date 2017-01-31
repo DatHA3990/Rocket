@@ -61,7 +61,7 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-#include "Gyroscope.h"
+#include <Gyroscope.h>
 
 Gyroscope::Gyroscope() // gyroscope setup
 {
@@ -92,7 +92,7 @@ bool Gyroscope::GetStatus()
   mpuIntStatus = Gyro.getIntStatus();
   fifoCount = Gyro.getFIFOCount();
 
-  (mpuIntStatus & 0x02) ? return 1 : return 0;
+  return (mpuIntStatus & 0x02) ? 1 : 0;
 }
 
 void Gyroscope::GetCalibratedAngle(float *ypr) // get gyroscope's angle

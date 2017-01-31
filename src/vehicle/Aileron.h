@@ -38,46 +38,46 @@
 
 */
 
-#include "Arduino.h"
-#include <Servo.h> // Servo
+#include <Arduino.h>
+#include <Servo\src\Servo.h>
 
 #ifndef AILERON_H
 #define AILERON_H
 
-// aileron pinout
-#define pin1 7
-#define pin2 8
-#define pin3 9
-#define pin4 10
-
-// ypr adjust potentiometers pins
-#define adjust0 14
-#define adjust1 15
-#define adjust2 16
-#define adjust3 17
-
 class Aileron
 {
 
-  private:
+private:
 
-    //aileron object
-    Servo aileron1;
-    Servo aileron2;
-    Servo aileron3;
-    Servo aileron4;
+	// aileron pinout
+	static const int pin1 = 7;
+	static const int pin2 = 8;
+	static const int pin3 = 9;
+	static const int pin4 = 10;
+
+	// ypr adjust potentiometers pins
+	static const int adjust0 = 14;
+	static const int adjust1 = 15;
+	static const int adjust2 = 16;
+	static const int adjust3 = 17;
+
+	//aileron object
+	Servo aileron1;
+	Servo aileron2;
+	Servo aileron3;
+	Servo aileron4;
 
 
 
-  private:
+private:
 
-    void Adjust(int & a0, int & a1, int & a2, int & a3);
+	void Adjust(int & a0, int & a1, int & a2, int & a3);
 
-  public:
-    Aileron();
-    ~Aileron();
+public:
+	Aileron();
+	~Aileron();
 
-    void Write(const float *ypr); // turn the ailerons so that they guide the rocket straight up
+	void Write(const float *ypr); // turn the ailerons so that they guide the rocket straight up
 };
 
 #endif

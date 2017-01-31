@@ -40,9 +40,9 @@
 */
 
 
-#include "Arduino.h"
-#include "SparkFunMPL3115A2.h"  // MPL3115A2
-#include <Wire.h>               // I2C library
+#include <Arduino.h>
+#include <SparkFun_MPL3115A2_Breakout_Arduino_Library-master\src\SparkFunMPL3115A2.h>
+#include <Wire\src\Wire.h>
 
 class Altimeter
 {
