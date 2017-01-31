@@ -62,10 +62,10 @@
   THE SOFTWARE.
 */
 
-#include <Arduino.h>
-#include <I2Cdev\I2Cdev.h>                       // I2C
-#include <Wire\src\Wire.h>
-#include <MPU6050\MPU6050_6Axis_MotionApps20.h> // MPU-6050
+#include "Arduino.h"
+#include "I2Cdev.h"                     // I2C
+#include "Wire.h"
+#include "MPU6050_6Axis_MotionApps20.h" // MPU-6050
 
 class Gyroscope
 {
@@ -88,7 +88,7 @@ class Gyroscope
   public:
 
     Gyroscope(); // gyroscope setup
-    ~Gyroscope();
+    //~Gyroscope();
 
     bool GetStatus();
     void GetCalibratedAngle(float *ypr); // get gyroscope's angle

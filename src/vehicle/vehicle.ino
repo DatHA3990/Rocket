@@ -56,7 +56,7 @@ int main()
 
   while (1) // going down
   {
-    if (Mpu.GetStatus)
+    if (Mpu.GetStatus())
     {
       static float ypr[3];
       Mpu.GetCalibratedAngle(ypr); // get gyro
