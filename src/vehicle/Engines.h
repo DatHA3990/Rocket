@@ -41,6 +41,13 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef ENGINE
 #define ENGINE
 
+class Engine
+{
 
+private:
+
+public:
+
+};
 
 #endif //
