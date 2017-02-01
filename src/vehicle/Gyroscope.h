@@ -70,26 +70,26 @@
 class Gyroscope
 {
 
-  private:
+private:
 
-    MPU6050 Gyro;          // gyro objetct
+	MPU6050 Gyro;          // gyro objetct
 
-    Quaternion q;          // [w, x, y, z] quaternion container
-    VectorFloat gravity;   // [x, y, z]    gravity vector
+	Quaternion q;          // [w, x, y, z] quaternion container
+	VectorFloat gravity;   // [x, y, z]    gravity vector
 
-    bool dmpReady = false; // set true if DMP init was successful
+	bool dmpReady = false; // set true if DMP init was successful
 
-    int mpuIntStatus;      // holds actual interrupt status byte from mpu
-    int devStatus;         // return status after each device operation
-    int packetSize;        // expected DMP packet size (default is 42 bytes)
-    int fifoCount;         // count of all bytes currently in FIFO
-    uint8_t fifoBuffer[64];    // FIFO storage buffer
+	int mpuIntStatus;      // holds actual interrupt status byte from mpu
+	int devStatus;         // return status after each device operation
+	int packetSize;        // expected DMP packet size (default is 42 bytes)
+	int fifoCount;         // count of all bytes currently in FIFO
+	uint8_t fifoBuffer[64];    // FIFO storage buffer
 
-  public:
+public:
 
-    Gyroscope(); // gyroscope setup
-    ~Gyroscope();
+	Gyroscope(); // gyroscope setup
+	~Gyroscope();
 
-    bool GetStatus();
-    void GetCalibratedAngle(float *ypr); // get gyroscope's angle
+	bool GetStatus();
+	void GetCalibratedAngle(float *ypr); // get gyroscope's angle
 };

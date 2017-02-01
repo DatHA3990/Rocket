@@ -49,24 +49,29 @@ Gyroscope Mpu;
 
 int main()
 {
-  while (Alt.GetCalibratedAltitude() + 2 > Alt.GetApogeeAltitude()) // going up
-  {
+	while (ON_LAUNCH_PAD) // before takeoff
+	{
 
-  }
+	}
 
-  while (1) // going down
-  {
-    if (Mpu.GetStatus())
-    {
-      static float ypr[3];
-      Mpu.GetCalibratedAngle(ypr); // get gyro
-      
-      Fins.Write(ypr); // turn the ailerons to guide the rocket
-    } 
+	while (Alt.GetCalibratedAltitude() + 2 > Alt.GetApogeeAltitude()) // launch
+	{
 
-    static int altitude = Alt.GetCalibratedAltitude();    // get altitude
-    //static int temperature = Alt.GetTemperature(); // get temperature
-  }
+	}
 
-  return 1;
+	while (GOING_DOWN) // re-entry and landing
+	{
+		if (Mpu.GetStatus()) // 
+		{
+			static float ypr[3];
+			Mpu.GetCalibratedAngle(ypr); // get gyro
+
+			Fins.Write(ypr); // turn the ailerons to guide the rocket
+		}
+
+		static int altitude = Alt.GetCalibratedAltitude();    // get altitude
+		//static int temperature = Alt.GetTemperature(); // get temperature
+	}
+
+	return 1;
 }

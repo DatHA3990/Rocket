@@ -47,20 +47,20 @@
 class Altimeter
 {
 
-  private:
+private:
 
-    int altitudeCalibration; //altitude at launch
-    int apogeeAltitude = 0;
+	int altitudeCalibration; //altitude at launch
+	int apogeeAltitude = 0;
 
-    MPL3115A2 baro; // baro object
+	MPL3115A2 baro; // baro object
 
-  public:
+public:
 
-    Altimeter();
-    ~Altimeter();
+	Altimeter();
+	~Altimeter();
 
-    int GetCalibratedAltitude(); // get calibrated altitude
-    int GetApogeeAltitude();
-    int GetTemperature(); // get temperature in degrees celsius
+	int GetCalibratedAltitude(); // get calibrated altitude
+	int GetApogeeAltitude();
+	int GetTemperature(); // get temperature in degrees celsius
 
 };
