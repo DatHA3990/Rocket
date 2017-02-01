@@ -53,6 +53,11 @@ Altimeter::Altimeter()
   altitudeCalibration = baro.readAltitude(); // get calibration for altitude
 }
 
+Altimeter::~Altimeter()
+{
+
+}
+
 int Altimeter::GetCalibratedAltitude() // get calibrated altitude
 {
   int altitude = baro.readAltitude() - altitudeCalibration; // get current altitude - altitude at takeoff.

@@ -88,7 +88,7 @@ class Gyroscope
   public:
 
     Gyroscope(); // gyroscope setup
-    //~Gyroscope();
+    ~Gyroscope();
 
     bool GetStatus();
     void GetCalibratedAngle(float *ypr); // get gyroscope's angle

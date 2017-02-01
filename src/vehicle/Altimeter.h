@@ -57,7 +57,7 @@ class Altimeter
   public:
 
     Altimeter();
-    //~Altimeter();
+    ~Altimeter();
 
     int GetCalibratedAltitude(); // get calibrated altitude
     int GetApogeeAltitude();

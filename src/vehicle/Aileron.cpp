@@ -40,6 +40,20 @@
 
 #include "Aileron.h"
 
+Aileron::Aileron() // servos setup
+{
+	// attach the servo to the according pin
+	aileron1.attach(pin1);
+	aileron2.attach(pin2);
+	aileron3.attach(pin3);
+	aileron4.attach(pin4);
+}
+
+Aileron::~Aileron()
+{
+
+}
+
 void Aileron::Adjust(int & a0, int & a1, int & a2, int & a3)
 {
   // calculate the adjustment values and map them to according levels
@@ -47,15 +61,6 @@ void Aileron::Adjust(int & a0, int & a1, int & a2, int & a3)
   a1 = map(analogRead(adjust1), 0, 1023, -30, 30);
   a2 = map(analogRead(adjust2), 0, 1023, -30, 30);
   a3 = map(analogRead(adjust3), 0, 1023, -30, 30);
-}
-
-Aileron::Aileron() // servos setup
-{
-  // attach the servo to the according pin
-  aileron1.attach(pin1);
-  aileron2.attach(pin2);
-  aileron3.attach(pin3);
-  aileron4.attach(pin4);
 }
 
 void Aileron::Write(const float *ypr) // turn the ailerons so that they guide the rocket straight up

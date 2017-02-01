@@ -85,6 +85,11 @@ Gyroscope::Gyroscope() // gyroscope setup
   }
 }
 
+Gyroscope::~Gyroscope()
+{
+
+}
+
 bool Gyroscope::GetStatus()
 {
   Gyro.resetFIFO(); // reset the fifo, here to prevent lag or code freeze
