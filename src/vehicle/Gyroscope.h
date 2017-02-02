@@ -90,6 +90,6 @@ public:
 	Gyroscope(); // gyroscope setup
 	~Gyroscope();
 
-	bool GetStatus();
+	bool GetStatus();                    
 	void GetCalibratedAngle(float *ypr); // get gyroscope's angle
 };

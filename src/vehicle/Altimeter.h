@@ -60,7 +60,7 @@ public:
 	~Altimeter();
 
 	int GetCalibratedAltitude(); // get calibrated altitude
-	int GetApogeeAltitude();
-	int GetTemperature(); // get temperature in degrees celsius
+	int GetApogeeAltitude();     // get flight apogee
+	int GetTemperature();        // get temperature in degrees celsius
 
 };

@@ -53,6 +53,9 @@ public:
 	Engine();
 	~Engine();
 
+	void FireMain(); // launch burn
+ 	void FireBack(); // re-entry burn
+
 };
 
 #endif //

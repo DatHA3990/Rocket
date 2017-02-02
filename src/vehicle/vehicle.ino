@@ -41,25 +41,30 @@
 #include "Arduino.h"
 #include "Aileron.h"
 #include "Altimeter.h"
+#include "Engines.h"
 #include "Gyroscope.h"
 
 Aileron Fins;
 Altimeter Alt;
+Engine Motor;
 Gyroscope Mpu;
 
 int main()
 {
-	while (ON_LAUNCH_PAD) // before takeoff
+	while (WAIT_FOR_LAUNCH) // before takeoff
 	{
 
 	}
+
+	Motor.FireMain(); // we have takeoff!
 
 	while (Alt.GetCalibratedAltitude() + 2 > Alt.GetApogeeAltitude()) // launch
 	{
 
 	}
 
-	while (GOING_DOWN) // re-entry and landing
+
+	while (Alt.GetCalibratedAltitude() > 0) // re-entry and landing
 	{
 		if (Mpu.GetStatus()) // 
 		{
@@ -71,6 +76,9 @@ int main()
 
 		static int altitude = Alt.GetCalibratedAltitude();    // get altitude
 		//static int temperature = Alt.GetTemperature(); // get temperature
+
+		if (RE_ENTRY_BURN)
+			Motor.FireBack();
 	}
 
 	return 1;

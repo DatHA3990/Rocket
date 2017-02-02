@@ -49,3 +49,13 @@ Engine::~Engine()
 {
 
 }
+
+void Engine::FireMain()
+{
+
+}
+
+void Engine::FireBack()
+{
+
+}

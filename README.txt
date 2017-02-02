@@ -15,6 +15,12 @@ Here is the flight plan:
 	Landing:
 		Land vertically. Shutdown all systems.
 
+Here are some notes you need to know:
+	I don't have a big budget so my sensors were somewhat cheap.
+	Cheap sensors means that accuracy is bad. That is why most
+	values are rounded to the nearest unit :(
+
+
 
 
 

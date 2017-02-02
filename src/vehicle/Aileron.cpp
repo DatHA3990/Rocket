@@ -69,10 +69,12 @@ void Aileron::Write(const float *ypr) // turn the ailerons so that they guide th
 	Adjust(a1, a2, a3, a4); // get adjustment variable
 
 	int ypr1[3];
-	for (int i = 0; i < 3; i++) ypr1[i] = ypr[i];
+	for (int i = 0; i < 3; i++)
+		ypr1[i] = ypr[i] * -1;
 
 	int ypr2[3];
-	for (int i = 0; i < 3; i++) ypr2[i] = map(ypr1[i], 0, 180, 180, 0); // invert the values
+	for (int i = 0; i < 3; i++)
+		ypr2[i] = ypr[i]; // invert the values
 
 	// aileron 1
 	ypr2[2] += a1;
