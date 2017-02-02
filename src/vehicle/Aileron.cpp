@@ -43,10 +43,10 @@
 Aileron::Aileron() // servos setup
 {
 	// attach the servo to the according pin
-	aileron1.attach(pin1);
-	aileron2.attach(pin2);
-	aileron3.attach(pin3);
-	aileron4.attach(pin4);
+	Aileron1.attach(aileronPin1);
+	Aileron2.attach(aileronPin2);
+	Aileron3.attach(aileronPin3);
+	Aileron4.attach(aileronPin4);
 }
 
 Aileron::~Aileron()
@@ -57,10 +57,10 @@ Aileron::~Aileron()
 void Aileron::Adjust(int & a0, int & a1, int & a2, int & a3)
 {
 	// calculate the adjustment values and map them to according levels
-	a0 = map(analogRead(adjust0), 0, 1023, -30, 30);
-	a1 = map(analogRead(adjust1), 0, 1023, -30, 30);
-	a2 = map(analogRead(adjust2), 0, 1023, -30, 30);
-	a3 = map(analogRead(adjust3), 0, 1023, -30, 30);
+	a0 = map(analogRead(adjustPin1), 0, 1023, -30, 30);
+	a1 = map(analogRead(adjustPin2), 0, 1023, -30, 30);
+	a2 = map(analogRead(adjustPin3), 0, 1023, -30, 30);
+	a3 = map(analogRead(adjustPin4), 0, 1023, -30, 30);
 }
 
 void Aileron::Write(const float *ypr) // turn the ailerons so that they guide the rocket straight up
@@ -78,17 +78,21 @@ void Aileron::Write(const float *ypr) // turn the ailerons so that they guide th
 
 	// aileron 1
 	ypr2[2] += a1;
-	if (ypr2[2] > 30 && ypr2[2] < 150) aileron1.write(ypr2[2]);
+	if (ypr2[2] > 30 && ypr2[2] < 150)
+		Aileron1.write(ypr2[2]);
 
 	// aileron 2
 	ypr1[1] += a2;
-	if (ypr1[1] > 30 && ypr1[1] < 150) aileron2.write(ypr1[1]);
+	if (ypr1[1] > 30 && ypr1[1] < 150)
+		Aileron2.write(ypr1[1]);
 
 	// aileron 3
 	ypr1[2] += a3;
-	if (ypr1[2] > 30 && ypr1[2] < 150) aileron3.write(ypr1[2]);
+	if (ypr1[2] > 30 && ypr1[2] < 150)
+		Aileron3.write(ypr1[2]);
 
 	// ailerons 4
 	ypr2[1] += a4;
-	if (ypr2[1] > 30 && ypr2[1] < 150) aileron4.write(ypr2[1]);
+	if (ypr2[1] > 30 && ypr2[1] < 150)
+		Aileron4.write(ypr2[1]);
 }

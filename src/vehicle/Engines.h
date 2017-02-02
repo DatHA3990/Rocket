@@ -41,6 +41,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef ENGINE
 #define ENGINE
 
+#include "config.h"
 #include "Arduino.h"
 
 class Engine

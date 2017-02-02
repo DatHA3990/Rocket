@@ -38,6 +38,7 @@
 
 */
 
+#include "config.h"
 #include "Arduino.h"
 #include "Servo.h"
 
@@ -49,23 +50,10 @@ class Aileron
 
 private:
 
-	// aileron pinout
-	static const int pin1 = 7;
-	static const int pin2 = 8;
-	static const int pin3 = 9;
-	static const int pin4 = 10;
-
-	// ypr adjust potentiometers pins
-	static const int adjust0 = 14;
-	static const int adjust1 = 15;
-	static const int adjust2 = 16;
-	static const int adjust3 = 17;
-
-	//aileron object
-	Servo aileron1;
-	Servo aileron2;
-	Servo aileron3;
-	Servo aileron4;
+//aileron object
+	Servo Aileron1;
+	Servo Aileron3;
+	Servo Aileron4;
 
 
 

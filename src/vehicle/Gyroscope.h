@@ -62,6 +62,7 @@
   THE SOFTWARE.
 */
 
+#include "config.h"
 #include "Arduino.h"
 #include "I2Cdev.h"                     // I2C
 #include "Wire.h"
@@ -72,7 +73,7 @@ class Gyroscope
 
 private:
 
-	MPU6050 Gyro;          // gyro objetct
+	MPU6050 Gyro;          // gyro objetct from MPU6050 library
 
 	Quaternion q;          // [w, x, y, z] quaternion container
 	VectorFloat gravity;   // [x, y, z]    gravity vector

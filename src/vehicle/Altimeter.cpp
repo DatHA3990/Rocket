@@ -50,7 +50,7 @@ Altimeter::Altimeter()
 	baro.enableEventFlags();   // Enable all three pressure and temp event flags
 
 
-	altitudeCalibration = baro.readAltitude(); // get calibration for altitude
+	m_altitudeCalibration = baro.readAltitude(); // get calibration for altitude
 }
 
 Altimeter::~Altimeter()
@@ -60,16 +60,17 @@ Altimeter::~Altimeter()
 
 int Altimeter::GetCalibratedAltitude() // get calibrated altitude
 {
-	int altitude = baro.readAltitude() - altitudeCalibration; // get current altitude - altitude at takeoff.
+	int altitude = baro.readAltitude() - m_altitudeCalibration; // get current altitude - altitude at takeoff.
 
-	if (altitude < apogeeAltitude) apogeeAltitude = altitude;
+	if (altitude < apogeeAltitude)
+		m_apogeeAltitude = altitude;
 
 	return altitude;
 }
 
 int Altimeter::GetApogeeAltitude()
 {
-	return apogeeAltitude;
+	return m_apogeeAltitude;
 }
 
 int Altimeter::GetTemperature() // get temperature in degrees celsius

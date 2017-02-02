@@ -39,7 +39,7 @@
 
 */
 
-
+#include "config.h"
 #include "Arduino.h"
 #include "SparkFunMPL3115A2.h"
 #include "Wire.h"
@@ -49,8 +49,8 @@ class Altimeter
 
 private:
 
-	int altitudeCalibration; //altitude at launch
-	int apogeeAltitude = 0;
+	int m_altitudeCalibration; //altitude at launch
+	int m_apogeeAltitude = 0;
 
 	MPL3115A2 baro; // baro object
 
