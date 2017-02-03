@@ -48,24 +48,23 @@
 class Aileron
 {
 
-private:
+  private:
 
-//aileron object
-	Servo Aileron1;
-	Servo Aileron3;
-	Servo Aileron4;
+    //aileron object
+    Servo Aileron1;
+    Servo Aileron2;
+    Servo Aileron3;
+    Servo Aileron4;
 
+  private:
 
+    void Adjust(int & a0, int & a1, int & a2, int & a3);
 
-private:
+  public:
+    Aileron();
+    ~Aileron();
 
-	void Adjust(int & a0, int & a1, int & a2, int & a3);
-
-public:
-	Aileron();
-	~Aileron();
-
-	void Write(const float *ypr); // turn the ailerons so that they guide the rocket straight up
+    void Write(const float *ypr); // turn the ailerons so that they guide the rocket straight up
 };
 
 #endif

@@ -53,18 +53,20 @@ int main()
 {
 	while (WAIT_FOR_LAUNCH) // before takeoff
 	{
-
+		if (GO_FOR_LAUNCH)
+		{
+			Motor.FireMain(); // we have takeoff!
+			break;
+		}
 	}
 
-	Motor.FireMain(); // we have takeoff!
-
-	while (Alt.GetCalibratedAltitude() + 2 > Alt.GetApogeeAltitude()) // launch
+	while (GOING_UP) // launch
 	{
 
 	}
 
 
-	while (Alt.GetCalibratedAltitude() > 0) // re-entry and landing
+	while (GOING_DOWN) // re-entry and landing
 	{
 		if (Mpu.GetStatus()) // 
 		{
@@ -73,12 +75,15 @@ int main()
 
 			Fins.Write(ypr); // turn the ailerons to guide the rocket
 		}
-
+		
 		static int altitude = Alt.GetCalibratedAltitude();    // get altitude
 		//static int temperature = Alt.GetTemperature(); // get temperature
 
 		if (RE_ENTRY_BURN)
 			Motor.FireBack();
+
+		if (LANDED)
+			break;
 	}
 
 	return 1;

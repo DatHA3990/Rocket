@@ -13,4 +13,13 @@
 #define adjustPin3 16
 #define adjustPin4 17
 
+// key moments during the flight
+
+bool WAIT_FOR_LAUNCH = false;
+bool GO_FOR_LAUNCH = false;
+bool GOING_UP = false;
+bool GOING_DOWN = false;
+bool RE_ENTRY_BURN = false;
+bool LANDED = false;
+
 #endif

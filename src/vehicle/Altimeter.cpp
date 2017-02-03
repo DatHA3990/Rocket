@@ -55,14 +55,15 @@ Altimeter::Altimeter()
 
 Altimeter::~Altimeter()
 {
-
+	delete m_altitudeCalibration;
+	delete m_apogeeAltitude;
 }
 
 int Altimeter::GetCalibratedAltitude() // get calibrated altitude
 {
 	int altitude = baro.readAltitude() - m_altitudeCalibration; // get current altitude - altitude at takeoff.
 
-	if (altitude < apogeeAltitude)
+	if (altitude < m_apogeeAltitude)
 		m_apogeeAltitude = altitude;
 
 	return altitude;
