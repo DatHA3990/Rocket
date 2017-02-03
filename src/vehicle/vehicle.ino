@@ -44,10 +44,10 @@
 #include "Engines.h"
 #include "Gyroscope.h"
 
-Aileron Fins;
-Altimeter Alt;
-Engine Motor;
-Gyroscope Mpu;
+Aileron m_Ailerons;
+Altimeter m_Altimeter;
+Engine m_Motor;
+Gyroscope m_Gyroscope;
 
 int main()
 {
@@ -55,7 +55,7 @@ int main()
 	{
 		if (GO_FOR_LAUNCH)
 		{
-			Motor.FireMain(); // we have takeoff!
+			m_Motor.FireMain(); // we have takeoff!
 			break;
 		}
 	}
@@ -68,19 +68,19 @@ int main()
 
 	while (GOING_DOWN) // re-entry and landing
 	{
-		if (Mpu.GetStatus()) // 
+		if (m_Gyroscope.GetStatus()) // 
 		{
 			static float ypr[3];
-			Mpu.GetCalibratedAngle(ypr); // get gyro
+			m_Gyroscope.GetCalibratedAngle(ypr); // get gyro
 
-			Fins.Write(ypr); // turn the ailerons to guide the rocket
+			m_Ailerons.Write(ypr); // turn the ailerons to guide the rocket
 		}
 		
-		static int altitude = Alt.GetCalibratedAltitude();    // get altitude
-		//static int temperature = Alt.GetTemperature(); // get temperature
+		static int altitude = m_Altimeter.GetCalibratedAltitude();    // get altitude
+		//static int temperature = m_Altimeter.GetTemperature(); // get temperature
 
 		if (RE_ENTRY_BURN)
-			Motor.FireBack();
+			m_Motor.FireBack();
 
 		if (LANDED)
 			break;

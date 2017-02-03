@@ -42,7 +42,8 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Engine::Engine()
 {
-
+	pinMode(mainEngine, OUTPUT);
+	pinMode(reEntryEngine, OUTPUT);
 }
 
 Engine::~Engine()
@@ -52,10 +53,10 @@ Engine::~Engine()
 
 void Engine::FireMain()
 {
-
+	digitalWrite(mainEngine, 1);
 }
 
 void Engine::FireBack()
 {
-
+	digitalWrite(reEntryEngine, 1);
 }
