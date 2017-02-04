@@ -51,7 +51,7 @@ Gyroscope m_Gyroscope;
 
 int main()
 {
-	while (WAIT_FOR_LAUNCH) // before takeoff
+	while (1) // before takeoff
 	{
 		if (GO_FOR_LAUNCH)
 		{
@@ -60,13 +60,13 @@ int main()
 		}
 	}
 
-	while (GOING_UP) // launch
+	while (1) // launch
 	{
 
 	}
 
 
-	while (GOING_DOWN) // re-entry and landing
+	while (1) // re-entry and landing
 	{
 		if (m_Gyroscope.GetStatus()) // 
 		{
@@ -79,10 +79,10 @@ int main()
 		static int altitude = m_Altimeter.GetCalibratedAltitude();    // get altitude
 		//static int temperature = m_Altimeter.GetTemperature(); // get temperature
 
-		if (RE_ENTRY_BURN)
+		if (1)
 			m_Motor.FireBack();
 
-		if (LANDED)
+		if ()
 			break;
 	}
 
