@@ -22,8 +22,9 @@
 #define GOING_UP        true  // gaining altitude
 #define GOING_DOWN      true  // losing altitude
 
-bool GO_FOR_LAUNCH = false;    // we are go for launch - start engines
-bool RE_ENTRY_BURN = false;    // good for re-entry burn
-bool LANDED = false;           // we have landed
+static bool GO_FOR_LAUNCH = false;    // we are go for launch - start engines
+static bool APOGEE = false;
+static bool RE_ENTRY_BURN = false;    // good for re-entry burn
+static bool LANDED = false;           // we have landed
 
 #endif

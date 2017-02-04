@@ -37,7 +37,7 @@
   EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
-
+#include "config.h"
 #include "Arduino.h"
 #include "Aileron.h"
 #include "Altimeter.h"
@@ -55,14 +55,15 @@ int main()
 	{
 		if (GO_FOR_LAUNCH)
 		{
-			m_Motor.FireMain(); // we have takeoff!
+			m_Motor.FireMain(); // we have takeoff
 			break;
 		}
 	}
 
 	while (GOING_UP) // launch
 	{
-
+		if (APOGEE)
+			break;
 	}
 
 
@@ -75,7 +76,7 @@ int main()
 
 			m_Ailerons.Write(ypr); // turn the ailerons to guide the rocket
 		}
-		
+
 		static int altitude = m_Altimeter.GetCalibratedAltitude();    // get altitude
 		//static int temperature = m_Altimeter.GetTemperature(); // get temperature
 

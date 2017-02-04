@@ -36,9 +36,6 @@
   IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
   EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
-
-
   /*
   I2Cdev device library code is placed under the MIT license
   Copyright (c) 2012 Jeff Rowberg

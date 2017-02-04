@@ -49,14 +49,12 @@ Altimeter::Altimeter()
 	baro.setOversampleRate(7); // Set Oversample to the recommended 128
 	baro.enableEventFlags();   // Enable all three pressure and temp event flags
 
-
 	m_altitudeCalibration = baro.readAltitude(); // get calibration for altitude
 }
 
 Altimeter::~Altimeter()
 {
-	delete m_altitudeCalibration;
-	delete m_apogeeAltitude;
+
 }
 
 int Altimeter::GetCalibratedAltitude() // get calibrated altitude
