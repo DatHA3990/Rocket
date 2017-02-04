@@ -48,7 +48,8 @@ Engine::Engine()
 
 Engine::~Engine()
 {
-
+	delete *m_mainStartTime;
+	delete *m_backStartTime;
 }
 
 void Engine::FireMain()
