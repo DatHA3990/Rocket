@@ -49,13 +49,19 @@ class Engine
 
 private:
 
+	static unsigned long m_mainStartTime = 0;
+	static unsigned long m_backStartTime = 0;
+
 public:
 
 	Engine();
 	~Engine();
 
-	void FireMain(); // launch burn
- 	void FireBack(); // re-entry burn
+	void FireMain();  // launch burn
+	void ResetMain(); // reset main spark plug
+
+	void FireBack();  // re-entry burn
+	void ResetBack(); // reset re-entry spark plug
 
 };
 

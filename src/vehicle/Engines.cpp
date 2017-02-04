@@ -54,9 +54,29 @@ Engine::~Engine()
 void Engine::FireMain()
 {
 	digitalWrite(mainEngine, 1);
+	m_mainStartTime = millis();
+}
+
+void Engine::ResetMain()
+{
+	if (millis() - m_mainStartTime >= 1000)
+	{
+		digitalWrite(mainEngine, 0);
+		GO_FOR_LAUNCH = false;
+	}
 }
 
 void Engine::FireBack()
 {
 	digitalWrite(reEntryEngine, 1);
+	m_backStartTime = millis();
+}
+
+void Engine::ResetBack()
+{
+	if (millis() - m_backStartTime >= 1000)
+	{
+		digitalWrite(mainEngine, 0);
+		RE_ENTRY_BURN = false;
+	}
 }

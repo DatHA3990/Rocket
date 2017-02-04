@@ -62,6 +62,7 @@ int main()
 
 	while (GOING_UP) // launch
 	{
+		m_Motor.ResetMain();
 		if (APOGEE)
 			break;
 	}
