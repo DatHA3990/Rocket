@@ -66,7 +66,7 @@ void Aileron::Adjust(int & a0, int & a1, int & a2, int & a3)
 void Aileron::Write(const float *ypr) // turn the ailerons so that they guide the rocket straight up
 {
 	int a1, a2, a3, a4;
-	Adjust(a1, a2, a3, a4); // get adjustment variable
+	this->Adjust(a1, a2, a3, a4); // get adjustment variable
 
 	int ypr1[3];
 	for (int i = 0; i < 3; i++)
