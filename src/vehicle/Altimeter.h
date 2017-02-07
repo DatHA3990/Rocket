@@ -39,6 +39,8 @@
 
 */
 
+#pragma once
+
 #include "config.h"
 #include "Arduino.h"
 #include "SparkFunMPL3115A2.h"

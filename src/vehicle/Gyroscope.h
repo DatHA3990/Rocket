@@ -62,6 +62,8 @@
   THE SOFTWARE.
 */
 
+#pragma once
+
 #include "config.h"
 #include "Arduino.h"
 #include "I2Cdev.h"                     // I2C

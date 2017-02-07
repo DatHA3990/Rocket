@@ -38,12 +38,11 @@
 
 */
 
+#pragma once
+
 #include "config.h"
 #include "Arduino.h"
 #include "Servo.h"
-
-#ifndef AILERON_H
-#define AILERON_H
 
 class Aileron
 {
@@ -66,5 +65,3 @@ class Aileron
 
     void Write(const float *ypr); // turn the ailerons so that they guide the rocket straight up
 };
-
-#endif

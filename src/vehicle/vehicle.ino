@@ -43,27 +43,29 @@
 #include "Altimeter.h"
 #include "Engines.h"
 #include "Gyroscope.h"
+#include "KeyMoment.h"
 
-Aileron m_Ailerons;
+Aileron   m_Ailerons;
 Altimeter m_Altimeter;
-Engine m_Motor;
 Gyroscope m_Gyroscope;
+KeyMoment m_KeyMoment;
+Engine    m_Engine;
 
 int main()
 {
 	while (WAIT_FOR_LAUNCH) // before takeoff
 	{
-		if (GO_FOR_LAUNCH)
+		if (m_KeyMoment.GoForLaunch();)
 		{
-			m_Motor.FireMain(); // we have takeoff
+			m_Engine.FireMain(); // we have takeoff
 			break;
 		}
 	}
 
 	while (GOING_UP) // launch
 	{
-		m_Motor.ResetMain();
-		if (APOGEE)
+		m_Engine.ResetMain();
+		if (m_KeyMoment.Apogee())
 			break;
 	}
 
@@ -81,10 +83,13 @@ int main()
 		static int altitude = m_Altimeter.GetCalibratedAltitude();    // get altitude
 		//static int temperature = m_Altimeter.GetTemperature(); // get temperature
 
-		if (RE_ENTRY_BURN)
-			m_Motor.FireBack();
+		if (m_KeyMoment.ReEntryBurn())
+		{
+			m_Engine.FireBack();
+			m_Engine.ResetBack();
+		}
 
-		if (LANDED)
+		if (m_KeyMoment.Landed())
 			break;
 	}
 

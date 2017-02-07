@@ -1,4 +1,4 @@
-// Engine control
+// Checklist for main events
 
 /*
 
@@ -40,26 +40,19 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #pragma once
 
-#include "config.h"
-#include "Arduino.h"
-
-class Engine
+class KeyMoment
 {
 
 private:
 
-	static unsigned long m_mainStartTime = 0;
-	static unsigned long m_backStartTime = 0;
-
 public:
 
-	Engine();
-	~Engine();
+	KeyMoment();
+	~KeyMoment();
 
-	void FireMain();  // launch burn
-	void ResetMain(); // reset main spark plug
-
-	void FireBack();  // re-entry burn
-	void ResetBack(); // reset re-entry spark plug
+	bool GoForLaunch();    // we are go for launch - start engines
+	bool Apogee();         // we reached flight apogee
+	bool ReEntryBurn();    // good for re-entry burn
+	bool Landed();         // we have landed
 
 };
