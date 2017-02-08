@@ -64,14 +64,6 @@ int main()
 
 	while (GOING_UP) // launch
 	{
-		m_Engine.ResetMain();
-		if (m_KeyMoment.Apogee())
-			break;
-	}
-
-
-	while (GOING_DOWN) // re-entry and landing
-	{
 		if (m_Gyroscope.GetStatus()) // 
 		{
 			static float ypr[3];
@@ -79,6 +71,14 @@ int main()
 
 			m_Ailerons.Write(ypr); // turn the ailerons to guide the rocket
 		}
+
+		m_Engine.ResetMain();
+		if (m_KeyMoment.Apogee())
+			break;
+	}
+
+	while (GOING_DOWN) // re-entry and landing
+	{
 
 		static int altitude = m_Altimeter.GetCalibratedAltitude();    // get altitude
 		//static int temperature = m_Altimeter.GetTemperature(); // get temperature

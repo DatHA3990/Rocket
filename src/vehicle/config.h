@@ -50,11 +50,11 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define aileronPin3 9
 #define aileronPin4 10
 
-// ypr adjust potentiometers pins
-#define adjustPin1 14
-#define adjustPin2 15
-#define adjustPin3 16
-#define adjustPin4 17
+// ailerons adjust
+#define adjust1 0
+#define adjust2 0
+#define adjust3 0
+#define adjust4 0
 
 // key moments during the flight - these are in order
 #define WAIT_FOR_LAUNCH true  // wait until we are clear to takeoff

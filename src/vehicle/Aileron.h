@@ -55,10 +55,6 @@ class Aileron
     Servo Aileron3;
     Servo Aileron4;
 
-  private:
-
-    void Adjust(int & a0, int & a1, int & a2, int & a3);
-
   public:
     Aileron();
     ~Aileron();

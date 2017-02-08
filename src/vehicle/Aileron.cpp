@@ -54,20 +54,8 @@ Aileron::~Aileron()
 
 }
 
-void Aileron::Adjust(int & a0, int & a1, int & a2, int & a3)
-{
-	// calculate the adjustment values and map them to according levels
-	a0 = map(analogRead(adjustPin1), 0, 1023, -30, 30);
-	a1 = map(analogRead(adjustPin2), 0, 1023, -30, 30);
-	a2 = map(analogRead(adjustPin3), 0, 1023, -30, 30);
-	a3 = map(analogRead(adjustPin4), 0, 1023, -30, 30);
-}
-
 void Aileron::Write(const float *ypr) // turn the ailerons so that they guide the rocket straight up
 {
-	int a1, a2, a3, a4;
-	this->Adjust(a1, a2, a3, a4); // get adjustment variable
-
 	int ypr1[3];
 	for (int i = 0; i < 3; i++)
 		ypr1[i] = ypr[i] * -1;
@@ -77,22 +65,22 @@ void Aileron::Write(const float *ypr) // turn the ailerons so that they guide th
 		ypr2[i] = ypr[i]; // invert the values
 
 	// aileron 1
-	ypr2[2] += a1;
+	ypr2[2] += adjust1;
 	if (ypr2[2] > 30 && ypr2[2] < 150)
 		Aileron1.write(ypr2[2]);
 
 	// aileron 2
-	ypr1[1] += a2;
+	ypr1[1] += adjust2;
 	if (ypr1[1] > 30 && ypr1[1] < 150)
 		Aileron2.write(ypr1[1]);
 
 	// aileron 3
-	ypr1[2] += a3;
+	ypr1[2] += adjust3;
 	if (ypr1[2] > 30 && ypr1[2] < 150)
 		Aileron3.write(ypr1[2]);
 
 	// ailerons 4
-	ypr2[1] += a4;
+	ypr2[1] += adjust4;
 	if (ypr2[1] > 30 && ypr2[1] < 150)
 		Aileron4.write(ypr2[1]);
 }
