@@ -38,25 +38,34 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-#pragma once
+#include "KeyMoment.h"
 
-#include "Altimeter.h"
-
-class KeyMoment
+KeyMoment::KeyMoment()
 {
 
-private:
+}
 
-	Altimeter m_Altimeter;
+KeyMoment::~KeyMoment()
+{
 
-public:
+}
 
-	KeyMoment();
-	~KeyMoment();
+bool KeyMoment::GoForLaunch()
+{
 
-	bool GoForLaunch();    // we are go for launch - start engines
-	bool Apogee();         // we reached flight apogee
-	bool ReEntryBurn();    // good for re-entry burn
-	bool Landed();         // we have landed
+}
 
-};
+bool KeyMoment::Apogee()
+{
+
+}
+
+bool KeyMoment::ReEntryBurn()
+{
+
+}
+
+bool KeyMoment::Landed()
+{
+
+}
