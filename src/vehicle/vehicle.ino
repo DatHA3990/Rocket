@@ -53,6 +53,14 @@ Engine    m_Engine;
 
 int main()
 {
+
+#ifdef DEBUG
+
+	Serial.begin(115200);
+
+#endif // DEBUG
+
+
 	while (WAIT_FOR_LAUNCH) // before takeoff
 	{
 		if (m_KeyMoment.GoForLaunch();)
@@ -60,6 +68,18 @@ int main()
 			m_Engine.FireMain(); // we have takeoff
 			break;
 		}
+
+#ifdef DEBUG
+
+		Serial.print(ypr[0]\t);
+		Serial.print(ypr[1]\t);
+		Serial.print(ypr[2]\t);
+
+		Serial.println();
+
+#endif
+
+
 	}
 
 	while (GOING_UP) // launch
@@ -75,6 +95,17 @@ int main()
 		m_Engine.ResetMain();
 		if (m_KeyMoment.Apogee())
 			break;
+
+#ifdef DEBUG
+
+		Serial.print(ypr[0]\t);
+		Serial.print(ypr[1]\t);
+		Serial.print(ypr[2]\t);
+
+		Serial.println();
+
+#endif
+
 	}
 
 	while (GOING_DOWN) // re-entry and landing
@@ -91,6 +122,17 @@ int main()
 
 		if (m_KeyMoment.Landed())
 			break;
+
+#ifdef DEBUG
+
+		Serial.print(ypr[0]\t);
+		Serial.print(ypr[1]\t);
+		Serial.print(ypr[2]\t);
+
+		Serial.println();
+
+#endif
+
 	}
 
 	return 0;

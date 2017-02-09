@@ -40,6 +40,8 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #pragma once
 
+#define DEBUG // undefine when final upload
+
 //motors pin
 #define mainEngine 2
 #define reEntryEngine 3

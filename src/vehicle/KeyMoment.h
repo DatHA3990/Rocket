@@ -40,14 +40,11 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #pragma once
 
-#include "Altimeter.h"
-
 class KeyMoment
 {
 
 private:
 
-	Altimeter m_Altimeter;
 
 public:
 
