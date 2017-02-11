@@ -48,8 +48,8 @@ class Engine
 
 private:
 
-	static unsigned long m_mainStartTime = 0;
-	static unsigned long m_backStartTime = 0;
+	unsigned long m_mainStartTime = 0;
+  unsigned long m_backStartTime = 0;
 
 public:
 

@@ -54,8 +54,8 @@ Altimeter::Altimeter()
 
 Altimeter::~Altimeter()
 {
-	delete *m_altitudeCalibration;
-	delete *m_apogeeAltitude;
+	//delete *m_altitudeCalibration;
+	//delete *m_apogeeAltitude;
 }
 
 int Altimeter::GetCalibratedAltitude() // get calibrated altitude

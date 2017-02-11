@@ -52,20 +52,20 @@ KeyMoment::~KeyMoment()
 
 bool KeyMoment::GoForLaunch()
 {
-
+	return 1;
 }
 
 bool KeyMoment::Apogee()
 {
-
+	return 1;
 }
 
 bool KeyMoment::ReEntryBurn()
 {
-
+	return 1;
 }
 
 bool KeyMoment::Landed()
 {
-
+	return 1;
 }

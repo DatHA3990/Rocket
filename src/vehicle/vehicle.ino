@@ -56,84 +56,98 @@ int main()
 
 #ifdef DEBUG
 
-	Serial.begin(115200);
+  Serial.begin(115200);
 
 #endif // DEBUG
 
 
-	while (WAIT_FOR_LAUNCH) // before takeoff
-	{
-		if (m_KeyMoment.GoForLaunch();)
-		{
-			m_Engine.FireMain(); // we have takeoff
-			break;
-		}
+  while (WAIT_FOR_LAUNCH) // before takeoff
+  {
+    if (m_KeyMoment.GoForLaunch());
+    {
+      m_Engine.FireMain(); // we have takeoff
+      break;
+    }
 
 #ifdef DEBUG
 
-		Serial.print(ypr[0]\t);
-		Serial.print(ypr[1]\t);
-		Serial.print(ypr[2]\t);
-
-		Serial.println();
+    Serial.println();
 
 #endif
 
 
-	}
+  }
 
-	while (GOING_UP) // launch
-	{
-		if (m_Gyroscope.GetStatus()) // 
-		{
-			static float ypr[3];
-			m_Gyroscope.GetCalibratedAngle(ypr); // get gyro
+  while (GOING_UP) // launch
+  {
 
-			m_Ailerons.Write(ypr); // turn the ailerons to guide the rocket
-		}
+    static float ypr[3];
 
-		m_Engine.ResetMain();
-		if (m_KeyMoment.Apogee())
-			break;
+    if (m_Gyroscope.GetStatus()) //
+    {
+      m_Gyroscope.GetCalibratedAngle(ypr); // get gyro
+    }
 
-#ifdef DEBUG
+    m_Ailerons.Write(ypr); // turn the ailerons to guide the rocket
 
-		Serial.print(ypr[0]\t);
-		Serial.print(ypr[1]\t);
-		Serial.print(ypr[2]\t);
-
-		Serial.println();
-
-#endif
-
-	}
-
-	while (GOING_DOWN) // re-entry and landing
-	{
-
-		static int altitude = m_Altimeter.GetCalibratedAltitude();    // get altitude
-		//static int temperature = m_Altimeter.GetTemperature(); // get temperature
-
-		if (m_KeyMoment.ReEntryBurn())
-		{
-			m_Engine.FireBack();
-			m_Engine.ResetBack();
-		}
-
-		if (m_KeyMoment.Landed())
-			break;
+    m_Engine.ResetMain();
+    if (m_KeyMoment.Apogee())
+      break;
 
 #ifdef DEBUG
 
-		Serial.print(ypr[0]\t);
-		Serial.print(ypr[1]\t);
-		Serial.print(ypr[2]\t);
+    Serial.print(ypr[0]);
+    Serial.print("  ");
+    Serial.print(ypr[1]);
+    Serial.print("  ");
+    Serial.print(ypr[2]);
+    Serial.print("  ");
 
-		Serial.println();
+    Serial.println();
 
 #endif
 
-	}
+  }
 
-	return 0;
+  while (GOING_DOWN) // re-entry and landing
+  {
+
+    static float ypr[3];
+
+    if (m_Gyroscope.GetStatus()) //
+    {
+      m_Gyroscope.GetCalibratedAngle(ypr); // get gyro
+    }
+
+    m_Ailerons.Write(ypr); // turn the ailerons to guide the rocket
+
+
+    static int altitude = m_Altimeter.GetCalibratedAltitude();    // get altitude
+    //static int temperature = m_Altimeter.GetTemperature(); // get temperature
+
+    if (m_KeyMoment.ReEntryBurn())
+    {
+      m_Engine.FireBack();
+      m_Engine.ResetBack();
+    }
+
+    if (m_KeyMoment.Landed())
+      break;
+
+#ifdef DEBUG
+
+    Serial.print(ypr[0]);
+    Serial.print("  ");
+    Serial.print(ypr[1]);
+    Serial.print("  ");
+    Serial.print(ypr[2]);
+    Serial.print("  ");
+
+    Serial.println();
+
+#endif
+
+  }
+
+  return 0;
 }

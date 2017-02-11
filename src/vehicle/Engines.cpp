@@ -48,8 +48,8 @@ Engine::Engine()
 
 Engine::~Engine()
 {
-	delete *m_mainStartTime;
-	delete *m_backStartTime;
+	//delete *m_mainStartTime;
+	//delete *m_backStartTime;
 }
 
 void Engine::FireMain()
@@ -63,7 +63,6 @@ void Engine::ResetMain()
 	if (millis() - m_mainStartTime >= 1000)
 	{
 		digitalWrite(mainEngine, 0);
-		GO_FOR_LAUNCH = false;
 	}
 }
 
@@ -78,6 +77,5 @@ void Engine::ResetBack()
 	if (millis() - m_backStartTime >= 1000)
 	{
 		digitalWrite(mainEngine, 0);
-		RE_ENTRY_BURN = false;
 	}
 }
