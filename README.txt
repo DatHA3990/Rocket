@@ -2,7 +2,7 @@ This is software for a rocket built by me. I've always admired
 SpaceX and this project is based off of their re-usable booster. 
 My rocket will takeoff, do a "re-entry" burn, then land 
 vertically. I hope that this project will maybe get me a job 
-at SpaceX.S
+at SpaceX.
 
 Here is the flight plan:
 	Pre-launch:
